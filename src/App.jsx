@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 
+import "./App.css";
+
 
 function App() {
 
@@ -27,7 +29,7 @@ function App() {
   ]);
 
   return <div className="App">
-    <h1>Lista de tarefas</h1>
+    <h1> ★ To Do List ★ </h1>
     <div className="todo-list">
       {todos.map((todo) => (
         <div className="todo">
