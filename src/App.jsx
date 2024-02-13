@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import "./App.css";
 import Todo from './components/Todo';
+import TodoForm from './components/TodoForm';
 
 
 function App() {
@@ -32,9 +33,10 @@ function App() {
     <h1> ★ To Do List ★ </h1>
     <div className="todo-list">
       {todos.map((todo) => (
-        <Todo todo={todo}/> 
+        <Todo todo={todo} />
       ))}
     </div>
+    <TodoForm />
   </div>;
 }
 
