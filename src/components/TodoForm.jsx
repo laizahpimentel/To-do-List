@@ -1,12 +1,24 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import { useState } from 'react';
 
 const TodoForm = () => {
-    return <div className='todo-form'>
+    const [value, setValue] = useState("");
+    const [category, setCategory] = useState("");
+    //submit's form
+    const handleSubmit = (e) => {
+        e.preventDeFault();
+        console.log(value,category);
+    };
+
+    return (
+        <div className='todo-form'>
         <h2> Criar tarefa:</h2>
-        <form>
-            <input type="text" placeholder="Digite o título" /> 
-            <select>
+        <form onSubmit={handleSubmit} >
+            <input type="text" placeholder="Digite o título" 
+            onChange={(e) => setValue(e.target.value)}
+            />
+            <select onChange={(e) => setCategory(e.target.value)} >
                 <option value="">Selecione uma categoria </option>
                 <option value="Trabalho">Trabalho </option>
                 <option value="Pessoal"> Pessoal </option>
@@ -14,8 +26,8 @@ const TodoForm = () => {
             </select>
             <button type="submit"> Criar Tarefa</button>
         </form>
-
-    </div>;
+    </div>
+    )
 };
 
 
