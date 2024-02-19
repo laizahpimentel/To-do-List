@@ -1,14 +1,23 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import { useState } from 'react';
+// import React from 'react';
 
-const TodoForm = () => {
+const TodoForm = ({ addTodo }) => {
     const [value, setValue] = useState("");
     const [category, setCategory] = useState("");
     //submit's form
     const handleSubmit = (e) => {
         e.preventDeFault();
-        console.log(value,category);
+        if (!value || !category) return;
+        // add todo , clear of fields
+        addTodo(value,category);
+        setValue("");
+        setCategory("");
+        console.log("testando");
+
     };
 
     return (
@@ -18,7 +27,7 @@ const TodoForm = () => {
             <input type="text" placeholder="Digite o título" 
             onChange={(e) => setValue(e.target.value)}
             />
-            <select onChange={(e) => setCategory(e.target.value)} >
+            <select value={category}  onChange={(e) => setCategory(e.target.value)} >
                 <option value="">Selecione uma categoria </option>
                 <option value="Trabalho">Trabalho </option>
                 <option value="Pessoal"> Pessoal </option>
