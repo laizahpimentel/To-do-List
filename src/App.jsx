@@ -51,7 +51,7 @@ function App() {
     <h1> ★ To Do List ★ </h1>
     <div className="todo-list">
       {todos.map((todo) => (
-        <Todo key={todo.id} todo={todo} />
+          <Todo key={todo.id} todo={todo} />
       ))}
     </div>
     <TodoForm  addTodo={addTodo}/>
