@@ -29,7 +29,7 @@ function App() {
     },
   ]);
 
-
+  //criar tarefa 
   const addTodo = (text, category) => {
 
     const newTodos = [...todos,
@@ -44,6 +44,14 @@ function App() {
   setTodos(newTodos);
   };
 
+  // deletar tarefa
+  const removeTodo = (id) => {
+    const newTodos = [...todos]
+    const filteredTodos = newTodos.filter(todo => 
+      todo.id !== id ? todo : null
+      );
+      setTodos(filteredTodos);
+  }
 
 
 
@@ -51,7 +59,7 @@ function App() {
     <h1> ★ To Do List ★ </h1>
     <div className="todo-list">
       {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
+          <Todo key={todo.id} todo={todo} removeTodo={removeTodo}/>
       ))}
     </div>
     <TodoForm  addTodo={addTodo}/>

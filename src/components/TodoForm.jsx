@@ -37,6 +37,7 @@ const TodoForm = ({ addTodo }) => {
         </form>
     </div>
     )
+    //  {/* <button type="submit" onClick={() => addTodo (todo.id)}> Criar Tarefa</button> */}
 };
 
 
