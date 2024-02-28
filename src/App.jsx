@@ -5,6 +5,7 @@ import "./App.css";
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 import Search from './components/Search';
+import Filter from './components/filter'
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
   return <div className="App">
     <h1> ★ To Do List ★ </h1>
     <Search search={search} setSearch={setSearch}/>
+    <Filter/>
     <div className="todo-list">
       {todos.filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())
       )
