@@ -33,6 +33,9 @@ function App() {
 
   const [search,setSearch] = useState("");
 
+  const [filter, setFilter] = useState("All");
+  const [sort, setSort] = useState("Asc");
+
   //criar tarefa 
   const addTodo = (text, category) => {
 
@@ -68,10 +71,22 @@ function App() {
   return <div className="App">
     <h1> ★ To Do List ★ </h1>
     <Search search={search} setSearch={setSearch}/>
-    <Filter/>
+    <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
     <div className="todo-list">
-      {todos.filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())
+      {todos
+      .filter((todo) => 
+      filter === "All" 
+      ? true : filter === "completed" 
+      ?  todo.isCompleted
+      : !todo.isCompleted
       )
+      .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())
+      )
+      // .sort((a,b ) => 
+      // sort === "Asc" 
+      // ? a.text.localecompare(b.text)
+      // : b.text.localecompare(a.text)
+      // )
       .map((todo) => (
         <Todo 
           key={todo.id} 
